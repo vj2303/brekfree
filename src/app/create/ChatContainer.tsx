@@ -1,5 +1,6 @@
 "use client"
 import Button from '@/components/UI/Button';
+import { ArrowDownToLine } from 'lucide-react';
 import Loader from '@/components/UI/Loader'; // Import the Loader component
 import axios from 'axios';
 import Image from 'next/image';
@@ -92,17 +93,17 @@ export default function ChatContainer({ selectedPrompt }: { selectedPrompt: stri
   };
 
   return (
-    <div className='max-w-[1200px] mx-auto py-[42px] px-[10px]'>
+    <div className='max-w-[1200px] mt-5 mx-auto py-[42px] px-[10px]'>
       {chat.map((ele, i) => (
         <div key={i} className='flex flex-col gap-[30px] mb-[90px]'>
           <ChatBox message={ele.prompt} userName={"User"} img={"/dummyAvatar.jpg"} isPrompt={true} isMarkdown={false} />
           <ChatBox message={ele.response} userName={"AI response"} img={"/dummyAvatar.jpg"} isPrompt={false} isMarkdown={true} />
           {ele.response && (
-            <button
-              onClick={() => handleDownloadResponse(ele.response.toString())}
-              className='mt-2 p-2 bg-blue-500 text-white rounded-md'>
-              Download Response
-            </button>
+            <div className='flex ml-16  '>
+              <ArrowDownToLine className='cursor-pointer' onClick={() => handleDownloadResponse(ele.response.toString())}/>
+            </div>
+            
+            
           )}
         </div>
       ))}

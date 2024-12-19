@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const Button = ({ bg, text, size, type, onClick, ...props }: ButtonProps) => {
   return (
-    <button type={type} onClick={onClick} className={buttonVariants({ bg, text, size })} {...props} />
+    <button type={type} onClick={onClick} className={`hover:bg-[rgb(58,81,108)]  ${buttonVariants({ bg, text, size })}`} {...props}  />
   );
 };
 
