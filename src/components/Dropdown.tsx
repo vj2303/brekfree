@@ -2,7 +2,7 @@
 import { Calculator, ChevronDown, ChevronUp } from "lucide-react";
 import React, { useState } from "react";
 
-const Dropdown = ({ name, onChange, options, label, isHorizontal }) => {
+const Dropdown = ({ name, onChange, options, label, isHorizontal,img }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 
@@ -13,7 +13,7 @@ const Dropdown = ({ name, onChange, options, label, isHorizontal }) => {
   };
 
   return (
-    <div className="relative flex flex-col flex-1 border-2 rounded-lg bg-[#ffffff] min-w-[200px] p-4 ">
+    <div className="relative flex flex-col flex-1 border-2 rounded-lg bg-[#ffffff] min-w-[200px] p-4 hover:border-purple-500   ">
       {/* Header Section */}
       <span
         className={`${
@@ -21,8 +21,8 @@ const Dropdown = ({ name, onChange, options, label, isHorizontal }) => {
         } cursor-pointer`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Calculator />
-        <span className="flex justify-between items-center w-full font-semibold">
+        {img}
+        <span className="flex justify-between items-center w-full font-semibold ">
           <p className="w-max">{(selected && selected.label) || label}</p>
           {isOpen ? <ChevronUp /> : <ChevronDown />}
         </span>

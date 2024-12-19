@@ -1,4 +1,8 @@
 "use client";
+import { LetterText,CircleUser,Factory } from 'lucide-react';
+import { Lightbulb } from 'lucide-react';
+import { MdLightbulbOutline } from "react-icons/md";
+import { MdOutlineDeliveryDining } from "react-icons/md"; 
 
 import Dropdown from '@/components/Dropdown';
 import Button from '@/components/UI/Button';
@@ -34,6 +38,7 @@ const ResponsesContainer = ({
       <div className="bg-light-purple p-[28px] rounded-xl flex flex-col items-center gap-[20px] w-full">
         <div className="flex justify-between items-start w-full gap-[20px]">
           <Dropdown
+            img={<LetterText />}
             options={contentTypeOptions}
             name="content_type"
             label="Type Of Content"
@@ -41,6 +46,7 @@ const ResponsesContainer = ({
             isHorizontal={true}
           />
           <Dropdown
+            img={<CircleUser />}
             options={audienceTypeOptions}
             name="audience_type"
             label="Type Of Audience"
@@ -48,6 +54,7 @@ const ResponsesContainer = ({
             isHorizontal={true}
           />
           <Dropdown
+            img={<MdOutlineDeliveryDining  size={25}/>}
             options={deliveryMethodOptions}
             name="delivery_method"
             label="Delivery Method"
@@ -55,6 +62,7 @@ const ResponsesContainer = ({
             isHorizontal={true}
           />
           <Dropdown
+            img={<MdLightbulbOutline size={25}/>}
             options={outputTypeOptions}
             name="content_theme"
             label="Content Theme"
@@ -62,6 +70,7 @@ const ResponsesContainer = ({
             isHorizontal={true}
           />
           <Dropdown
+            img={<Factory />}
             options={industryTypeOptions}
             name="target_industry"
             label="Target Industry"
@@ -71,7 +80,7 @@ const ResponsesContainer = ({
         </div>
         <Button bg={"dark-blue"} text="white" onClick={() => handleGetPrompts(prompt)}>
           Generate
-          <Image src={"/Vector.png"} alt="star" width={20} height={20} />
+          <Image src={"/Vector.png"} alt="star"   width={20} height={20} />
         </Button>
       </div>
       <div>
@@ -112,7 +121,7 @@ const ResponsesContainer = ({
                   className="max-w-[48%] basis-[48%] text-left border rounded-lg p-[30px] shadow-sm"
                   key={i}
                 >
-                  <svg
+                  {/* <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                     fill="currentColor"
@@ -123,10 +132,11 @@ const ResponsesContainer = ({
                       d="M9.58 1.077a.75.75 0 0 1 .405.82L9.165 6h4.085a.75.75 0 0 1 .567 1.241l-6.5 7.5a.75.75 0 0 1-1.302-.638L6.835 10H2.75a.75.75 0 0 1-.567-1.241l6.5-7.5a.75.75 0 0 1 .897-.182Z"
                       clipRule="evenodd"
                     />
-                  </svg>
+                  </svg> */}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#e3f207" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className=" mb-5 lucide lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
                   <p>{ele.prompt}</p>
                   <p
-                    className="border-b-2 border-black ml-auto max-w-fit cursor-pointer"
+                    className="border-b-2 mt-2 border-black ml-auto max-w-fit cursor-pointer"
                     onClick={() => handleSelectPrompt(ele.prompt)}
                   >
                     Ask this
